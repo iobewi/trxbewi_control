@@ -1,0 +1,8 @@
+# compose.local.yml (override local)
+services:
+  trxbewi_control:
+    image: iobewi:trxbewi_control
+    devices:
+      - /dev/i2c-1:/dev/i2c-1 
+    security_opt:
+      - no-new-privileges:true   # pas --privileged
