@@ -1,6 +1,6 @@
 # Makefile — setup host + env pour Compose non-root (avec remove udev)
 
-.PHONY: build up down status bash
+.PHONY: build up down status bash logs
 
 ## Monte/arrête la stack
 build:
@@ -8,8 +8,10 @@ build:
 up:
 	docker compose -f compose.local.yaml up -d
 status:
-	docker compose ps
+	docker compose -f compose.local.yaml ps
 down:
-	docker compose down
+	docker compose -f compose.local.yaml down
 bash:
-	docker compose exec trxbewi_control bash
+	docker compose -f compose.local.yaml exec trxbewi_control bash
+logs:
+	docker compose -f compose.local.yaml logs
